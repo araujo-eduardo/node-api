@@ -14,10 +14,14 @@ const getUsers = () => {
 };
 
 const userRouter = (app) => {
-  app.route("/users/:id?").get((req, res) => {
-    const users = getUsers();
-    res.send({ users });
-  });
+  app
+    .route("/users/:id?")
+    .get((req, res) => {
+      const users = getUsers();
+      //res.send(users);
+      res.status(200).json(users);
+    })
+    .post((req, res) => {});
 };
 
 module.exports = userRouter;
