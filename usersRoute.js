@@ -26,6 +26,10 @@ function saveUsers(user) {
   //armazenando no banco
   fs.writeFileSync(filePath, JSON.stringify(users, null, "\t"));
 }
+function updateUsers(users) {
+  //armazenando no banco
+  fs.writeFileSync(filePath, JSON.stringify(users, null, "\t"));
+}
 
 function userExists(id) {
   const users = getUsers();
@@ -70,10 +74,44 @@ function userRouter(app) {
 
       if (!userExists(id)) {
         saveUsers(user);
-        return res.status(201).send("Usuário criado com sucesso!");
+        return res.status(201).send({
+          message: "Usuário criado!",
+          newUser: user,
+        });
       } else {
         return res.status(400).send("Id já cadastrado!");
       }
+    })
+    .put((req, res) => {
+      const users = getUsers();
+      const id = req.params.id;
+      var newUsers = users.map((user) => {
+        if (user.id === id) {
+          return {
+            // ...user,
+            // ...req.body,
+            id: user.id,
+            name: req.body.name,
+            idade: req.body.idade,
+          };
+        }
+        return user;
+      });
+      updateUsers(newUsers);
+
+      return res
+        .status(200)
+        .send({ message: "Usuário atualizado!", newUsers: newUsers });
+    })
+    .delete((req, res) => {
+      const users = getUsers();
+      var newUsers = users.filter((user) => user.id !== req.params.id);
+
+      updateUsers(newUsers);
+
+      res
+        .status(200)
+        .send({ message: "Usuário removido!", newUsers: newUsers });
     });
 }
 
