@@ -15,6 +15,7 @@ Para rodar a API, primeiramente deve instalar as depêndencias com o npm:
 `npm i`
 
 Para subir a API:
+
 `npm start`
 
 Para subir a API em modo de desenvolvimento com o nodemon:
