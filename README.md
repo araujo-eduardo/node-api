@@ -1,4 +1,4 @@
-# API NodeJS RestFull com banco MariaDB
+# Rest API NodeJS com banco MariaDB
 
 Este é o projeto da disciplina de programação web da escola técnica mesquita.
 
