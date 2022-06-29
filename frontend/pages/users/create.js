@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function CreateUser() {
   const [user, setUser] = useState({ name: "", idade: 0 });
+
   function onChange(e) {
     e.preventDefault();
     const value = e.target.value;

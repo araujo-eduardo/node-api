@@ -54,7 +54,6 @@ class UsersController {
         { name: name, idade: idade },
         { where: { id: id } }
       );
-      console.log(...user);
       if (user[0] === 1) {
         return res.status(200).send({ message: "Usuário atualizado!" });
       } else {
