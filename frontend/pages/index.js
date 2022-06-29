@@ -13,7 +13,7 @@ export default function Home() {
         <nav>
           <ul>
             <li>
-              <Link href="/users">
+              <Link href="/users/list">
                 <a>Usuários</a>
               </Link>
             </li>

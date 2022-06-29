@@ -85,10 +85,6 @@ class UsersController {
       });
     }
   }
-
-  async sendPage(req, res) {
-    res.sendFile(path.join(__dirname, "../views/users.html"));
-  }
 }
 
 module.exports = new UsersController();

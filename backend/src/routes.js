@@ -9,6 +9,9 @@ routes.get("/users/:id", UsersController.read);
 routes.post("/users", UsersController.create);
 routes.put("/users/:id", UsersController.update);
 routes.delete("/users/:id", UsersController.delete);
-routes.get("/users.html", UsersController.sendPage);
+
+routes.get("*", function (req, res) {
+  res.status(404).send("Página não encontrada!");
+});
 
 module.exports = routes;

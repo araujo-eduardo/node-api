@@ -1,7 +1,7 @@
-import api from "../services/api";
+import api from "../../services/api";
 import { useState, useEffect } from "react";
 
-export default function Home() {
+export default function ListUsers() {
   const [users, setUsers] = useState();
   const [loadUsers, setLoadUsers] = useState(true);
 
@@ -42,7 +42,17 @@ export default function Home() {
         </tbody>
       </table>
       <footer>
+        <br />
         <a href="/">Voltar para home</a>
+        <br />
+        <br />
+        <a href="/users/create">Criar usuário</a>
+        <br />
+        <br />
+        <a href="/users/update">Atualizar usuário</a>
+        <br />
+        <br />
+        <a href="/users/delete">Deletar usuário</a>
       </footer>
     </div>
   );
