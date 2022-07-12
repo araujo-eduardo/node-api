@@ -20,7 +20,7 @@ export default function ListUsers() {
   console.log(users);
   return (
     <div>
-      <h1>Usuários</h1>
+      <h1 className="title">Usuários</h1>
       <table>
         <thead>
           <tr>

@@ -11,7 +11,9 @@ export default function Home() {
         <nav>
           <ul>
             <li>
-              <a href="/users/list">Usuários</a>
+              <a className="title" href="/users/list">
+                Usuários
+              </a>
             </li>
           </ul>
         </nav>
