@@ -1,5 +1,5 @@
 const { models } = require("../config/database");
-const User = models.Users;
+const User = models.User;
 const path = require("path");
 
 class UsersController {

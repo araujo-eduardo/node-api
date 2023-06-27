@@ -1,8 +1,8 @@
-import api from "../../services/api";
-import { useState, useEffect } from "react";
+import api from '../../services/api';
+import { useState, useEffect } from 'react';
 
 export default function UpdateUser() {
-  const [user, setUser] = useState({ name: "", idade: 0 });
+  const [user, setUser] = useState({ name: '', idade: 0 });
   const [users, setUsers] = useState();
   const [userId, setUserId] = useState();
   const [loadUsers, setLoadUsers] = useState(true);
@@ -11,21 +11,21 @@ export default function UpdateUser() {
     e.preventDefault();
     const value = e.target.value;
 
-    if (e.target.name === "selectedUser") {
+    if (e.target.name === 'selectedUser') {
       setUserId(parseInt(value));
     }
 
-    if (e.target.name === "name") {
+    if (e.target.name === 'name') {
       setUser({ name: value, idade: user.idade });
     }
 
-    if (e.target.name === "idade") {
+    if (e.target.name === 'idade') {
       setUser({ name: user.name, idade: parseInt(value) });
     }
   }
 
   async function getUsers() {
-    api.get("/users").then((res) => {
+    api.get('/users').then((res) => {
       const { data } = res;
       setUsers(data.users);
     });
@@ -35,9 +35,9 @@ export default function UpdateUser() {
     api
       .put(`/users/${userId}`, user)
       .then(() => {
-        alert("Usuário atualizado!");
+        alert('Usuário atualizado!');
         // setLoadUsers(true);
-        window.location = "/users/list";
+        window.location = '/users/list';
       })
       .catch((e) => {
         alert(`Erro: ${e}`);

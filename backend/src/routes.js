@@ -3,6 +3,8 @@ const routes = express.Router();
 
 const UsersController = require("./controllers/UsersController");
 
+routes.get("/");
+
 routes.get("/users", UsersController.index);
 routes.get("/users/:id", UsersController.read);
 
